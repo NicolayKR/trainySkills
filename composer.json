@@ -15,7 +15,8 @@
     "laminas/laminas-diactoros": "2.9.x-dev",
     "php-di/php-di": "dev-master",
     "laminas/laminas-httphandlerrunner": "2.2.x-dev",
-    "league/container": "4.x-dev"
+    "league/container": "4.x-dev",
+    "ext-json": "*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6"
