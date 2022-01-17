@@ -20,18 +20,8 @@ class TypeResult
     public function getRes()
     {
         if (count($this->result->getQueryParams()) > 1) {
-//            $response = new JsonResponse(
-//            $this->result->getQueryParams(),
-//            200,
-//            [],
-//            JSON_PRETTY_PRINT | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT
-//            );
             $response = $this->result->getQueryParams();
         } else {
-//            $response = new Response;
-//            $response->getBody()->write(
-//                '<h1>Hello,' . print_r($this->result->getQueryParams()['name'], true) .
-//                '!</h1><p><pre>' . TestClass::clientCode(new ConcreteFactory1()) . '</pre></p>');
             $response = '<h1>Hello,' . print_r($this->result->getQueryParams()['name'], true) .
                 '!</h1><p><pre>' . TestClass::clientCode(new ConcreteFactory1()) . '</pre></p>';
         }

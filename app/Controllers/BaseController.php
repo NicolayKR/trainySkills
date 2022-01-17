@@ -3,11 +3,8 @@
 namespace App\Controllers;
 
 
-use Psr\Http\Message\ResponseInterface;
+use DI\Container;
 use Psr\Http\Message\ServerRequestInterface;
-use Laminas\Diactoros\Response;
-use App\Classes\ConcreteFactory1;
-use App\Classes\TestClass;
 use App\Classes\TypeResult;
 
 class BaseController
@@ -15,11 +12,10 @@ class BaseController
 
     public function index(ServerRequestInterface $request)
     {
-//        $builder = new \DI\ContainerBuilder();
-//        $container = $builder->build();
-        $response = new TypeResult($request);
+        $container = new Container();
+        $container->set(ServerRequestInterface::class, $request);
+        $response = $container->get(TypeResult::class);
         $response = $response->getRes();
-//        $response = $container->get('TypeResult');
         return $response;
     }
 }

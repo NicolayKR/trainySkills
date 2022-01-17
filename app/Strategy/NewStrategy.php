@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Strategy;
 
-use App\Classes\TypeResult;
 use JsonSerializable;
 use Laminas\Diactoros\Response\HtmlResponse;
 use Laminas\Diactoros\Response\JsonResponse;
@@ -28,7 +27,7 @@ class NewStrategy extends AbstractStrategy implements ContainerAwareInterface, O
     protected $responseFactory;
     protected $type;
 
-    public function __construct(ResponseFactoryInterface $responseFactory, $request)
+    public function __construct(ResponseFactoryInterface $responseFactory)
     {
         $this->responseFactory = $responseFactory;
     }

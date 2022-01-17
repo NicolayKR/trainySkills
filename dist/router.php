@@ -26,13 +26,13 @@ $router->get('/', function (ServerRequestInterface $request): ResponseInterface 
 });
 
 $router->get('/test', [BaseController::class, 'index'])
-    ->middleware(new BaseMiddleware());
+    ->middleware(new BaseMiddleware())->setStrategy(new NewStrategy($responseFactory, $request));
 
 $router->get('/test2', function (ServerRequestInterface $request) {
     $response = new TypeResult($request);
     $response = $response->getRes();
     return $response;
-})->setStrategy(new NewStrategy($responseFactory, $request));
+})->setStrategy(new NewStrategy($responseFactory));
 
 $response = $router->dispatch($request);
 
